@@ -1,0 +1,166 @@
+{% extends "base.html" %} {% block title %} register {% endblock %} {% block
+head %}
+<style>
+  .hide {
+    display: none;
+  }
+.activeb{
+  background-color: blue;
+}  
+</style>
+{% endblock %} {% block nav %}
+<li class="nav-item">
+  <a class="nav-link" href="/">login</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/register">register</a>
+</li>
+{% endblock %} {% block body %}
+<h1>register</h1>
+<div class="text-center">
+  <h2>Choose Account type</h2>
+  <button class = "" id="b-client">client</button>
+  <button class = "" id="b-owner">owner</button>
+</div>
+
+<div>
+  <!-- client form -->
+  <form id="clientf" class="hide" action="/register" method="post">
+    <input type="hidden" name="form_id" value="clients" />
+    <div class="mb-3">
+      <input
+        autocomplete="off"
+        autofocus
+        class="form-control mx-auto w-auto"
+        name="username"
+        placeholder="Username"
+        type="text"
+      />
+    </div>
+
+    <div class="mb-3">
+      <input
+        placeholder="email"
+        type="email"
+        class="form-control"
+        name="emailf"
+        aria-describedby="emailHelp"
+      />
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control mx-auto w-auto"
+        name="password"
+        minlength="8"
+        maxlength="16"
+        placeholder="Password"
+        type="password"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control mx-auto w-auto"
+        name="cpassword"
+        placeholder="confirm Password"
+        type="password"
+      />
+    </div>
+    <button class="btn btn-primary" type="submit">register</button>
+  </form>
+</div>
+
+<div>
+  <!-- owner form -->
+  <form id="ownerf" class="hide" action="/register" method="post">
+    <input type="hidden" name="form_id" value="owners" />
+    <div class="mb-3">
+      <input
+        autocomplete="off"
+        autofocus
+        class="form-control mx-auto w-auto"
+        name="usernameo"
+        placeholder="Username"
+        type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        placeholder="email"
+        type="email"
+        class="form-control"
+        name="emailo"
+        aria-describedby="emailHelp"
+      />
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control mx-auto w-auto"
+        name="store"
+        placeholder="store name "
+        type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control mx-auto w-auto"
+        name="passwordo"
+        minlength="8"
+        maxlength="16"
+        placeholder="Password"
+        type="password"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control mx-auto w-auto"
+        name="cpasswordo"
+        placeholder="confirm Password"
+        type="password"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        class="form-control mx-auto w-auto"
+        name="location"
+        placeholder="srore location : city / street"
+        type="text"
+      />
+    </div>
+
+    
+
+    <button class="btn btn-primary" type="submit">register</button>
+  </form>
+</div>
+
+<script>
+  let client = document.querySelector("#b-client");
+  let clientf = document.querySelector("#clientf");
+  let owner = document.querySelector("#b-owner");
+  let ownerf = document.querySelector("#ownerf");
+
+  client.onclick = function () {
+    clientf.classList.remove("hide");
+    ownerf.classList.add("hide");
+    owner.classList.remove("activeb")
+    client.classList.add("activeb")
+
+  };
+  owner.onclick = function () {
+    ownerf.classList.remove("hide");
+    clientf.classList.add("hide");
+    owner.classList.add("activeb")
+    client.classList.remove("activeb")
+  };
+
+  
+  
+
+</script>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "layout_client.html" %}
+
+{% block body %}
+<h1> search for a store </h1>
+<form action="/search" method = post>
+    <input type="text" placeholder="store name" name="name">
+    <button type="submit"> search</button>
+
+</form>
+
+{% endblock %}

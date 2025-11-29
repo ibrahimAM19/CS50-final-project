@@ -1,0 +1,27 @@
+{% extends "layout_client.html" %}
+{% block body %}
+<h1> stores </h1>
+<table class="table" style="color: rgb(9, 141, 97);">
+    <thead>
+        <tr>
+            <td> store name </td>
+            <td> location</td>
+             <td> book </td> 
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in Towners %} 
+    <tr>
+        <td> {{i.store}} </td>
+        <td> {{i.location}} </td>
+        <td> 
+            <form action="/book" method="POST">
+                <input type="hidden" name="id" value="{{ i.id }}">
+                <button type="submit">View books</button>
+            </form>
+        </td>
+    </tr>
+{% endfor%}
+    </tbody>
+</table>
+{% endblock %}

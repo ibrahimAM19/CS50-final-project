@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %} login {% endblock %}
+{% block head %}
+<style>
+    .hide {
+        display: none;
+
+    }
+    .activeb{
+  background-color: blue;
+}  
+</style>
+{% endblock %}
+
+{% block nav %}
+<li class="nav-item">
+    <a class="nav-link" href="/">login</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/register">register</a>
+</li>
+{% endblock %}
+{% block body %}
+<h1> Log in</h1>
+<div class="text-center">
+    <h2> Choose Account type</h2>
+    <button id="b-client"> client </button>
+    <button id="b-owner"> owner</button>
+</div>
+
+
+<div> <!-- client form -->
+    <form id="clientf" class="hide" action="/login" method="post">
+        <input type="hidden" name="form_id" value="clients">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username"
+                placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" minlength="8" maxlength="16"
+                placeholder="Password" type="password">
+        </div>
+
+        <button class="btn btn-primary" type="submit">login</button>
+
+    </form>
+</div>
+
+<div> <!-- owner form -->
+    <form id="ownerf" class="hide" action="/login" method="post">
+        <input type="hidden" name="form_id" value="owners">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username"
+                placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" minlength="8" maxlength="16"
+                placeholder="Password" type="password">
+        </div>
+
+        <button class="btn btn-primary" type="submit">login</button>
+
+    </form>
+</div>
+
+<script>
+    let client = document.querySelector("#b-client")
+    let clientf = document.querySelector("#clientf")
+    let owner = document.querySelector("#b-owner")
+    let ownerf = document.querySelector("#ownerf")
+
+    client.onclick = function () {
+        clientf.classList.remove("hide");
+        ownerf.classList.add("hide");
+        owner.classList.remove("activeb")
+    client.classList.add("activeb")
+    }
+    owner.onclick = function () {
+        ownerf.classList.remove("hide");
+        clientf.classList.add("hide");
+        owner.classList.add("activeb")
+    client.classList.remove("activeb")
+
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout_client.html" %}
+
+{% block body %}
+
+<style>
+    .page-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        font-weight: bold;
+         
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    thead {
+        background: #f1f1f1;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+        font-size: 15px;
+        color: #222; /* نص غامق */
+    }
+
+    tr:hover {
+        background: #fafafa;
+    }
+
+    th {
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+</style>
+
+<h1 class="page-title">My Booking</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Store name</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in row %}
+        <tr>
+            <td>{{i.store}}</td>
+            <td>{{ i.day }}</td>
+            <td>{{ i.time }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

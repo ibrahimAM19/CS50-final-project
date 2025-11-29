@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Sechdule Master {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    {% block head %}{% endblock %}
+    <style>
+    body {
+        padding-top: 90px;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+</style>
+</head>
+<body  class ="p-3 mb-2 bg-dark text-white" >
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+x
+    <a class="navbar-brand" href="#">Sechdule Master</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        -->
+        {% block nav %}
+        
+        {% endblock %}
+        <!-- middle navbar-->
+
+        
+        <div class="d-flex justify-content-center flex-grow-1">
+          <li class="nav-item">
+            <button class="btn btn-light" id = 'light'> light mode </button>
+            
+          </li>
+          <li class="nav-item mx-3">
+            <button  class="btn btn-dark" id = 'dark'> dark mode</button>
+          </li>
+        </div>
+        <li class="nav-item mx-3">
+          <a class="nav-link active" aria-current="page" href="/logout">logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div  class="d-flex justify-content-center align-items-center vh-100 flex-column">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+
+    <script>
+        let b = document.querySelector('#dark')
+        b.onclick = function(){
+            document.querySelector('body').className = "p-3 mb-2 bg-dark text-white";
+        }
+            let b2 = document.querySelector('#light')
+        b2.onclick = function(){
+            document.querySelector('body').className = "p-3 mb-2 bg-light text-dark";
+        }
+
+
+    </script>
+</body>
+
+
+</html>
