@@ -1,5 +1,5 @@
 # Booking & Scheduling System - Schedule-Master
-
+[Click here to visit the live web app!](https://schedule-master-makc.onrender.com/)
 
 
 
